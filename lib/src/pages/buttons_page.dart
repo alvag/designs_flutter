@@ -12,7 +12,10 @@ class ButtonsPage extends StatelessWidget {
             _fondoApp(),
             SingleChildScrollView(
               child: Column(
-                children: <Widget>[_titulos(), _botonesRedondeados()],
+                children: <Widget>[
+                  _titulos(),
+                  _botonesRedondeados(),
+                ],
               ),
             )
           ],
@@ -21,7 +24,7 @@ class ButtonsPage extends StatelessWidget {
   }
 
   Widget _fondoApp() {
-    final _gradient = Container(
+    final gradient = Container(
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
@@ -36,26 +39,28 @@ class ButtonsPage extends StatelessWidget {
       ),
     );
 
-    final _cajaRosada = Transform.rotate(
+    final cajaRosada = Transform.rotate(
       angle: -pi / 5.0,
       child: Container(
-        height: 360.0,
-        width: 360.0,
+        height: 320.0,
+        width: 320.0,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(80.0),
-            gradient: LinearGradient(colors: [
-              Color.fromRGBO(236, 98, 188, 1.0),
-              Color.fromRGBO(241, 142, 172, 1.0),
-            ])),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(236, 98, 188, 1.0),
+                Color.fromRGBO(241, 142, 172, 1.0),
+              ],
+            )),
       ),
     );
 
     return Stack(
       children: <Widget>[
-        _gradient,
+        gradient,
         Positioned(
           top: -100,
-          child: _cajaRosada,
+          child: cajaRosada,
         ),
       ],
     );
@@ -116,22 +121,30 @@ class ButtonsPage extends StatelessWidget {
   Widget _botonesRedondeados() {
     return Table(
       children: [
-        TableRow(children: [
-          _boton(Colors.blue, Icons.border_all, 'General'),
-          _boton(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
-        ]),
-        TableRow(children: [
-          _boton(Colors.redAccent, Icons.disc_full, 'General'),
-          _boton(Colors.lime, Icons.domain, 'General'),
-        ]),
-        TableRow(children: [
-          _boton(Colors.amber, Icons.do_not_disturb, 'General'),
-          _boton(Colors.orange, Icons.drive_eta, 'General'),
-        ]),
-        TableRow(children: [
-          _boton(Colors.blue, Icons.border_all, 'General'),
-          _boton(Colors.blue, Icons.border_all, 'General'),
-        ])
+        TableRow(
+          children: [
+            _boton(Colors.blue, Icons.border_all, 'General'),
+            _boton(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ],
+        ),
+        TableRow(
+          children: [
+            _boton(Colors.redAccent, Icons.disc_full, 'General'),
+            _boton(Colors.lime, Icons.domain, 'General'),
+          ],
+        ),
+        TableRow(
+          children: [
+            _boton(Colors.amber, Icons.do_not_disturb, 'General'),
+            _boton(Colors.orange, Icons.drive_eta, 'General'),
+          ],
+        ),
+        TableRow(
+          children: [
+            _boton(Colors.blue, Icons.border_all, 'General'),
+            _boton(Colors.blue, Icons.border_all, 'General'),
+          ],
+        )
       ],
     );
   }
@@ -139,7 +152,7 @@ class ButtonsPage extends StatelessWidget {
   Widget _boton(Color color, IconData icon, String texto) {
     return ClipRect(
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 0.0),
+        filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 0.0),
         child: Container(
           height: 180.0,
           margin: EdgeInsets.all(15.0),

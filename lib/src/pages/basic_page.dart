@@ -6,16 +6,19 @@ class BasicPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(children: <Widget>[
-        _image(),
-        _title(),
-        _actions(),
-        _text(),
-        _text(),
-        _text(),
-      ]),
-    ));
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            _image(),
+            _title(),
+            _actions(),
+            _text(),
+            _text(),
+            _text(),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _image() {
